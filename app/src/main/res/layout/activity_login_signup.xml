@@ -38,7 +38,7 @@
         android:layout_width="214dp"
         android:layout_height="65dp"
         android:backgroundTint="#083362"
-        android:text="Log-in"
+        android:text="Einloggen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="405dp" />
@@ -59,7 +59,7 @@
         android:layout_width="214dp"
         android:layout_height="65dp"
         android:backgroundTint="#083362"
-        android:text="Sign-in"
+        android:text="Registrieren"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="516dp" />

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5F6FA9"
+    tools:context=".MainActivity">
+
+    <!-- Profilbild -->
+    <!-- Platzhalter-Icon -->
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:scaleType="centerCrop"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Begrüßung -->
+
+    <!-- Sonne Icon -->
+    <!-- Platzhalter -->
+    app:layout_constraintTop_toTopOf="@id/profileImage"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginEnd="16dp"/>
+
+    <!-- Kartenbereich (3 Stück) -->
+
+    <TextView
+        android:id="@+id/greeting"
+        android:layout_width="283dp"
+        android:layout_height="20dp"
+        android:text="Willkommen zurück,"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="47dp" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="271dp"
+        android:layout_height="42dp"
+        android:text="$benutzername"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="67dp" />
+
+    <!-- Navigation Bar (Material BottomNav) -->
+
+    <ImageView
+        android:id="@+id/sunIcon"
+        android:layout_width="63dp"
+        android:layout_height="53dp"
+        android:src="@drawable/sun"
+        tools:layout_editor_absoluteX="332dp"
+        tools:layout_editor_absoluteY="56dp" />
+
+    <LinearLayout
+        android:layout_width="416dp"
+        android:layout_height="523dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-4dp"
+        tools:layout_editor_absoluteY="128dp"></LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/naviBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#90262D49"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/white"
+        app:itemTextAppearanceActiveBoldEnabled="false"
+        app:labelVisibilityMode="unlabeled"
+        app:itemTextColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu">
+
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
