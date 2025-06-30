@@ -8,38 +8,50 @@
     android:background="#5F6FA9"
     tools:context=".LoadActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="193dp"
-        android:layout_height="166dp"
-        android:rotation="20"
-        app:srcCompat="@drawable/pngwing_com__8_"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="448dp" />
-
+    <!-- Dein Logo -->
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:rotation="-15"
-        app:srcCompat="@drawable/chatgpt_image_21__juni_2025__23_06_31"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="148dp" />
+        android:src="@drawable/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="150dp"/>
 
+    <!-- Stern oben rechts -->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/pngwing_com__7_"
-        tools:layout_editor_absoluteX="325dp"
-        tools:layout_editor_absoluteY="158dp" />
+        android:src="@drawable/pngwing_com__7_"
+        app:layout_constraintTop_toTopOf="@id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"/>
 
+    <!-- Stern unten links -->
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/pngwing_com__9_"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="409dp" />
+        android:src="@drawable/pngwing_com__9_"
+        app:layout_constraintBottom_toBottomOf="@id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- Großer Hintergrundstern oder Deko unten -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="193dp"
+        android:layout_height="166dp"
+        android:rotation="20"
+        android:src="@drawable/pngwing_com__8_"
+        app:layout_constraintTop_toBottomOf="@id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
