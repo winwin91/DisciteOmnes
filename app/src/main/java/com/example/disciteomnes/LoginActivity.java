@@ -1,7 +1,10 @@
 package com.example.disciteomnes;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,31 +19,44 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText editTextUsername, editTextPassword;
+    private Button loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_login);
         editTextUsername = findViewById(R.id.username_input);
         editTextPassword = findViewById(R.id.password_input);
+        loginButton = findViewById(R.id.loginbtn);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        String username = editTextUsername.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
+        loginButton.setOnClickListener(view -> {
+            String username = editTextUsername.getText().toString().trim();
+            String password = editTextPassword.getText().toString().trim();
 
-        mAuth.signInWithEmailAndPassword(username, password)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        // Login erfolgreich
-                        FirebaseUser user = mAuth.getCurrentUser();
-                    } else {
-                        // Fehler
-                    }
-                });
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(LoginActivity.this, "Bitte Username und Passwort eingeben!", Toast.LENGTH_SHORT).show();
+                return; // abbrechen
+            }
+
+            mAuth.signInWithEmailAndPassword(username, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(LoginActivity.this, "Login erfolgreich!", Toast.LENGTH_SHORT).show();
+                            // Z.B. weiter zum Dashboard:
+                            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                            finish();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Login fehlgeschlagen: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        });
     }
 }

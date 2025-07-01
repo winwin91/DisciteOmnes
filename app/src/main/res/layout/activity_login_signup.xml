@@ -9,29 +9,31 @@
     tools:context=".LoginSignupActivity">
 
     <!-- Dein Logo -->
+
+    <!-- Stern oben rechts -->
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="346dp"
         android:layout_height="248dp"
+        android:layout_marginTop="100dp"
         android:rotation="-15"
-        app:srcCompat="@drawable/logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp" />
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
-    <!-- Stern oben rechts -->
+    <!-- Stern unten links neben Logo -->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/pngwing_com__7_"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="32dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pngwing_com__7_" />
 
-    <!-- Stern unten links neben Logo -->
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="50dp"
@@ -43,38 +45,44 @@
         android:layout_marginStart="32dp" />
 
     <!-- Einloggen Button -->
+
+    <!-- Divider Linie -->
+
+    <!-- Registrieren Button -->
+
     <Button
         android:id="@+id/loginbtn"
         android:layout_width="214dp"
         android:layout_height="65dp"
+        android:layout_marginTop="156dp"
         android:backgroundTint="#083362"
         android:text="Einloggen"
-        app:layout_constraintTop_toBottomOf="@id/imageView2"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="80dp" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView2" />
 
-    <!-- Divider Linie -->
     <View
         android:id="@+id/divider"
         android:layout_width="214dp"
         android:layout_height="1dp"
+        android:layout_marginTop="36dp"
         android:background="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/loginbtn"
-        app:layout_constraintStart_toStartOf="@id/loginbtn"
         app:layout_constraintEnd_toEndOf="@id/loginbtn"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/loginbtn"
+        app:layout_constraintTop_toBottomOf="@id/loginbtn" />
 
-    <!-- Registrieren Button -->
     <Button
         android:id="@+id/signinbtn"
         android:layout_width="214dp"
         android:layout_height="65dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="#083362"
         android:text="Registrieren"
-        app:layout_constraintTop_toBottomOf="@id/divider"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

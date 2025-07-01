@@ -16,21 +16,29 @@
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings" />
+
         <activity
             android:name=".TasksActivity"
             android:exported="false" />
+
         <activity
             android:name=".StudyActivity"
             android:exported="false" />
+
         <activity
             android:name=".GroupsActivity"
             android:exported="false" />
+
+        <!-- WICHTIG: Login und Signin müssen exported=true sein, weil du sie per Intent startest -->
         <activity
             android:name=".SigninActivity"
-            android:exported="false" />
+            android:exported="true" />
+
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="true" />
+
+        <!-- Splash/Ladebildschirm mit MAIN/LAUNCHER -->
         <activity
             android:name=".LoadActivity"
             android:exported="true">
@@ -39,14 +47,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginSignupActivity" />
 
-        <!-- MainActivity (Dashboard/Home) -->
-        <activity android:name=".MainActivity" />
+        <!-- Einstieg für Login oder Registrierung -->
+        <activity
+            android:name=".LoginSignupActivity"
+            android:exported="true" />
+
+        <!-- Dashboard/Home darf auch exported=true sein,
+             falls es z.B. von woanders gestartet wird -->
         <activity
             android:name=".DashboardActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
+
+        <!-- MainActivity ist bei dir kein Startpunkt,
+             deshalb exported=false reicht.
+             Oder du kannst es auch true machen, je nach Flow -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
