@@ -19,6 +19,17 @@
     <string name="title_settings">settings</string>
     <string name="title_dash">dashboard</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="greeting_text">Willkommen zurück,</string>
+    <string name="username_placeholder">$benutzername</string>
+
+    <string name="box1_number">1</string>
+    <string name="box1_text">Tasks today</string>
+
+    <string name="box2_number">2</string>
+    <string name="box2_text">Due soon</string>
+
+    <string name="box3_number">3</string>
+    <string name="box3_text">Extra box</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
