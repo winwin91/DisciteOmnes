@@ -14,10 +14,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class SigninActivity extends AppCompatActivity {
 
-    EditText editTextUsername, editTextPassword, editTextConfirmPassword;
+    EditText editTextUsername, editTextEmail, editTextPassword, editTextConfirmPassword;
     FirebaseAuth mAuth;
     private Button registerButton;
 
@@ -36,16 +37,17 @@ public class SigninActivity extends AppCompatActivity {
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         editTextUsername = findViewById(R.id.username_input);
+        editTextEmail = findViewById(R.id.email_input);
         editTextPassword = findViewById(R.id.password_input);
         editTextConfirmPassword = findViewById(R.id.confirm_password_input);
         registerButton = findViewById(R.id.signupbtn);
 
         registerButton.setOnClickListener(v -> {
-            String username = editTextUsername.getText().toString().trim();
+            String email = editTextEmail.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
             String confirmPassword = editTextConfirmPassword.getText().toString().trim();
 
-            if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(SigninActivity.this, "Bitte alle Felder ausfüllen!", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -55,23 +57,44 @@ public class SigninActivity extends AppCompatActivity {
                 return;
             }
 
-            mAuth.createUserWithEmailAndPassword(username, password)
+            mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             // Registrierung erfolgreich
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(SigninActivity.this, "Registrierung erfolgreich!", Toast.LENGTH_SHORT).show();
 
-                            // Weiter zur DashboardActivity oder Login
-                            Intent intent = new Intent(SigninActivity.this, DashboardActivity.class);
-                            startActivity(intent);
-                            finish();
+                            // Hole den Benutzernamen aus deinem EditText
+                            String username = editTextUsername.getText().toString().trim();
+
+                            // Jetzt den DisplayName setzen
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(username)
+                                    .build();
+
+                            if (user != null) {
+                                user.updateProfile(profileUpdates).addOnCompleteListener(updateTask -> {
+                                    if (updateTask.isSuccessful()) {
+                                        Toast.makeText(SigninActivity.this, "Registrierung erfolgreich!", Toast.LENGTH_SHORT).show();
+
+                                        // Weiter zur DashboardActivity
+                                        Intent intent = new Intent(SigninActivity.this, DashboardActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        Toast.makeText(SigninActivity.this, "Name konnte nicht gespeichert werden: "
+                                                        + updateTask.getException().getMessage(),
+                                                Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
                         } else {
                             // Fehler
-                            Toast.makeText(SigninActivity.this, "Registrierung fehlgeschlagen: " + task.getException().getMessage(),
+                            Toast.makeText(SigninActivity.this, "Registrierung fehlgeschlagen: "
+                                            + task.getException().getMessage(),
                                     Toast.LENGTH_LONG).show();
                         }
                     });
+
         });
     }
 }

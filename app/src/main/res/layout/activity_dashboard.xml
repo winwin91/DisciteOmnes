@@ -1,81 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#5F6FA9"
     tools:context=".DashboardActivity">
 
+    <!-- Begrüßung -->
     <TextView
         android:id="@+id/greeting"
-        android:layout_width="283dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Willkommen zurück,"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="47dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"/>
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="284dp"
-        android:layout_height="38dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="$benutzername"
         android:textColor="#FFFFFF"
         android:textSize="28sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="67dp" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/greeting"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"/>
 
     <ImageView
         android:id="@+id/sunIcon"
-        android:layout_width="63dp"
-        android:layout_height="53dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/sun"
-        tools:layout_editor_absoluteX="332dp"
-        tools:layout_editor_absoluteY="56dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="40dp"/>
 
+    <!-- Weißer Container -->
     <LinearLayout
-        android:layout_width="416dp"
-        android:layout_height="523dp"
-        android:background="#FFFFFF"
+        android:id="@+id/white_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="128dp">
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/username"
+        app:layout_constraintBottom_toTopOf="@id/naviBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
 
+        <!-- GridLayout mit 3 Boxen -->
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/boxGrid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_height="281dp"
             android:padding="16dp"
             app:columnCount="2">
 
             <!-- Box 1 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="120dp"
-                app:layout_columnWeight="1"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 app:cardBackgroundColor="#FBC02D"
                 app:cardCornerRadius="16dp"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground">
+                app:layout_columnWeight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="111dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="1"
                         android:textSize="24sp"
                         android:textStyle="bold" />
+
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Tasks today" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -83,65 +98,75 @@
             <!-- Box 2 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="120dp"
-                app:layout_columnWeight="1"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 app:cardBackgroundColor="#E91E63"
                 app:cardCornerRadius="16dp"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground">
+                app:layout_columnWeight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="111dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="2"
                         android:textSize="24sp"
                         android:textStyle="bold" />
+
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Due soon" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Box 3 (lange Box) -->
+            <!-- Lange Box -->
             <androidx.cardview.widget.CardView
-                android:layout_width="370dp"
-                android:layout_height="120dp"
+                android:layout_width="361dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 app:cardBackgroundColor="#7E57C2"
                 app:cardCornerRadius="16dp"
-                android:clickable="true"
-                app:layout_columnSpan="2"
-                android:foreground="?attr/selectableItemBackground">
+                app:layout_columnSpan="2">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="108dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
-                        android:text="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
                         android:textSize="24sp"
                         android:textStyle="bold" />
+
                     <TextView
-                        android:text="Due soon" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Extra box" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-            >
-
         </androidx.gridlayout.widget.GridLayout>
 
+        <!-- Katze Bild -->
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/pngwing_com__6_" />
+            android:layout_width="342dp"
+            android:layout_height="230dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="130dp"
+            android:layout_marginBottom="-50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/pngwing_com__6_" />
     </LinearLayout>
 
+    <!-- BottomNavigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/naviBar"
         android:layout_width="0dp"
@@ -149,15 +174,10 @@
         android:background="#90262D49"
         app:itemIconSize="30dp"
         app:itemIconTint="@color/white"
-        app:itemTextAppearanceActiveBoldEnabled="false"
         app:labelVisibilityMode="unlabeled"
         app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu">
-
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

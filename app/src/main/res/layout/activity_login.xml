@@ -69,11 +69,11 @@
           android:padding="24dp">
 
         <EditText
-            android:id="@+id/username_input"
+            android:id="@+id/email_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#CCCCCC"
-            android:hint="Benutzername"
+            android:hint="Email"
             android:inputType="textEmailAddress"/>
 
         <EditText
