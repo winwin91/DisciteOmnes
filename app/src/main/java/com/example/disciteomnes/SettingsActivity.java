@@ -110,7 +110,7 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivity(new Intent(SettingsActivity.this, TasksActivity.class));
                 return true;
             } else {
-                return true; // Bleib hier
+                return true;
             }
         });
     }

@@ -16,8 +16,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 
+
+
+
 //         Diese Activity habe ich leider nicht mehr geschafft...
 //       ...Dafür gibt es eine lustige Katze!
+
+
+
+
+
+
 
 
 public class StudyActivity extends AppCompatActivity {

@@ -1,7 +1,9 @@
 package com.example.disciteomnes;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GetTokenResult;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -49,10 +52,29 @@ public class LoginActivity extends AppCompatActivity {
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(LoginActivity.this, "Login erfolgreich!", Toast.LENGTH_SHORT).show();
-                            // Z.B. weiter zum Dashboard:
-                            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-                            finish();
+
+                            if (user != null) {
+                                user.getIdToken(true).addOnCompleteListener(tokenTask -> {
+                                    if (tokenTask.isSuccessful()) {
+                                        GetTokenResult tokenResult = tokenTask.getResult();
+                                        String idToken = tokenResult.getToken();
+
+                                        Log.d("MY_URL", "Token (LoginActivity): " + idToken);
+
+                                        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = prefs.edit();
+                                        editor.putString("TOKEN", idToken);
+                                        editor.apply();
+
+                                        Toast.makeText(LoginActivity.this, "Login erfolgreich!", Toast.LENGTH_SHORT).show();
+
+                                        startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                                        finish();
+                                    } else {
+                                        Toast.makeText(LoginActivity.this, "Token holen fehlgeschlagen!", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
                         } else {
                             Toast.makeText(LoginActivity.this, "Login fehlgeschlagen: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
