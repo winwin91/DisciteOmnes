@@ -3,6 +3,7 @@ package com.example.disciteomnes;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +11,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+
+
+//         Diese Activity habe ich leider nicht mehr geschafft...
+//       ...Dafür gibt es eine lustige Katze!
+
 
 public class StudyActivity extends AppCompatActivity {
 
@@ -20,6 +28,11 @@ public class StudyActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(Color.parseColor("#5F6FA9"));
         setContentView(R.layout.activity_study);
 
+        ImageView gifView = findViewById(R.id.studyGif);
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.funnycat)
+                .into(gifView);
 
         BottomNavigationView bottomNav = findViewById(R.id.naviBar);
         bottomNav.setSelectedItemId(R.id.navigation_studyplan);
@@ -40,7 +53,6 @@ public class StudyActivity extends AppCompatActivity {
                 startActivity(new Intent(StudyActivity.this, SettingsActivity.class));
                 return true;
             } else {
-                // Bleib hier
                 return true;
             }
         });
