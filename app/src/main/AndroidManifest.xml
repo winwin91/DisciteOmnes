@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
 
     <application
         android:allowBackup="true"
@@ -73,6 +75,7 @@
         <activity android:name=".DeleteGroupActivity" />
         <activity android:name=".CreateTaskActivity" />
         <activity android:name=".EditTaskActivity" />
+        <activity android:name=".HelpActivity" />
     </application>
 
 </manifest>

@@ -62,7 +62,8 @@ public class SettingsActivity extends AppCompatActivity {
         // Hilfe
         helpButton.setOnClickListener(v -> {
             Toast.makeText(this, "Hilfe wird geöffnet...", Toast.LENGTH_SHORT).show();
-            // Öffne evtl. eine Hilfeseite
+            Intent intent = new Intent(SettingsActivity.this, HelpActivity.class);
+            startActivity(intent);
         });
 
         // Logout
