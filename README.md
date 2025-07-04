@@ -3,6 +3,8 @@
 DisciteOmnes ist eine Android-App für Studierende, um ihre Lern- und Gruppenorganisation einfach zu verwalten. Sie bietet dir eine klare Übersicht über deine Gruppen, Aufgaben und Studienpläne – alles an einem Ort.
 
 
+
+
 ✨ Features
 
 ✅ Benutzer-Authentifizierung mit Firebase
@@ -24,6 +26,8 @@ DisciteOmnes ist eine Android-App für Studierende, um ihre Lern- und Gruppenorg
 ✅ Firebase-Backend mit sicherer Authentifizierung
 
 
+
+
 📲 Installation
 1. Repository klonen
    git clone https://github.com/winwin91/DisciteOmnes.git
@@ -34,6 +38,8 @@ DisciteOmnes ist eine Android-App für Studierende, um ihre Lern- und Gruppenorg
 4. App starten
    - Emulator starten oder echtes Gerät verbinden.
    - Projekt builden & ausführen.
+
+
   
      
 ⚙️ Tech-Stack
@@ -42,6 +48,8 @@ DisciteOmnes ist eine Android-App für Studierende, um ihre Lern- und Gruppenorg
 - Retrofit für API-Requests
 - ConstraintLayout & BottomNavigationView
 - Gradle & Android Studio
+
+
 
     
 📧 Kontakt
