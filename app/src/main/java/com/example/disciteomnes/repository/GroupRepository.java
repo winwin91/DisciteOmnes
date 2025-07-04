@@ -24,25 +24,16 @@ public class GroupRepository {
         api = ApiClient.getClient(context).create(DisciteOmnesApi.class);
     }
 
-    /**
-     * ✅ Alle Gruppen abrufen
-     */
     public void getGroups(String token, Callback<List<Group>> callback) {
         Call<List<Group>> call = api.getGroups("Bearer " + token);
         call.enqueue(callback);
     }
 
-    /**
-     * ✅ Neue Gruppe erstellen
-     */
     public void createGroup(String token, GroupRequest request, Callback<Group> callback) {
         Call<Group> call = api.createGroup("Bearer " + token, request);
         call.enqueue(callback);
     }
 
-    /**
-     * ✅ Einer Gruppe beitreten
-     */
     public void joinGroup(String token, String groupId, Callback<ApiResponse> callback) {
         Call<ApiResponse> call = api.joinGroup("Bearer " + token, groupId);
         call.enqueue(callback);

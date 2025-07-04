@@ -14,7 +14,6 @@ public class Group {
         this.description = description;
     }
 
-    // Getter
     public String getName() {
         return name;
     }

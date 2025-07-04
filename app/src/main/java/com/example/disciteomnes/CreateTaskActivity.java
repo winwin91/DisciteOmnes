@@ -27,7 +27,6 @@ public class CreateTaskActivity extends AppCompatActivity {
     private EditText editTitle, editDescription, editDueDate, editAssignedTo;
     private CheckBox checkboxCompleted;
     private Button btnCreateTask;
-
     private TaskRepository repository;
 
     @Override
@@ -99,8 +98,10 @@ public class CreateTaskActivity extends AppCompatActivity {
         request.dueDate = dueDate;
         request.assignedTo = assignedTo;
 
+        // generiert
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("TOKEN", "");
+        // ...
 
         String groupId = "DEINE_GROUP_ID"; // Hole aus Context!
 
@@ -115,6 +116,7 @@ public class CreateTaskActivity extends AppCompatActivity {
                 }
             }
 
+            // Diese Methode ebenfalls!
             @Override
             public void onFailure(Call call, Throwable t) {
                 t.printStackTrace();

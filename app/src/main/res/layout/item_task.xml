@@ -16,7 +16,6 @@
         android:gravity="center"
         android:padding="16dp">
 
-        <!-- Aufgabentitel -->
         <TextView
             android:id="@+id/taskTitle"
             android:layout_width="wrap_content"
@@ -26,7 +25,6 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF" />
 
-        <!-- Aufgabenbeschreibung -->
         <TextView
             android:id="@+id/taskDescription"
             android:layout_width="wrap_content"
@@ -36,7 +34,6 @@
             android:textColor="#FFFFFF"
             android:layout_marginTop="4dp" />
 
-        <!-- Fälligkeitsdatum -->
         <TextView
             android:id="@+id/taskDueDate"
             android:layout_width="wrap_content"
@@ -46,7 +43,6 @@
             android:textColor="#FFFFFF"
             android:layout_marginTop="4dp" />
 
-        <!-- Zugewiesen an -->
         <TextView
             android:id="@+id/taskAssignedTo"
             android:layout_width="wrap_content"
@@ -56,7 +52,6 @@
             android:textColor="#FFFFFF"
             android:layout_marginTop="4dp" />
 
-        <!-- Abgeschlossen Checkbox -->
         <CheckBox
             android:id="@+id/taskCompleted"
             android:layout_width="wrap_content"

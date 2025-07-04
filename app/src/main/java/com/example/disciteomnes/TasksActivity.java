@@ -5,21 +5,17 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.disciteomnes.adapters.TasksAdapter;
 import com.example.disciteomnes.model.ApiResponse;
 import com.example.disciteomnes.repository.TaskRepository;
 import com.example.disciteomnes.model.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -98,14 +94,14 @@ public class TasksActivity extends AppCompatActivity {
             return;
         }
 
-        // 1) Hole alle Task-Titel in ein String[]
+
         List<Task> tasks = adapter.getTaskList();
         String[] taskTitles = new String[tasks.size()];
         for (int i = 0; i < tasks.size(); i++) {
             taskTitles[i] = tasks.get(i).getTitle();
         }
 
-        // 2) Zeige Auswahl-Dialog
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Aufgabe wählen");
         builder.setItems(taskTitles, (dialog, which) -> {
@@ -124,7 +120,6 @@ public class TasksActivity extends AppCompatActivity {
     }
 
     private void deleteSelectedTask(Task task) {
-        // ✅ Token laden
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("TOKEN", "");
 
@@ -133,7 +128,7 @@ public class TasksActivity extends AppCompatActivity {
             return;
         }
 
-        // ✅ Repository aufrufen
+        // generiert...
         repository.deleteTask(token, task.getId(), new retrofit2.Callback<com.example.disciteomnes.model.ApiResponse>() {
             @Override
             public void onResponse(Call<com.example.disciteomnes.model.ApiResponse> call, Response<ApiResponse> response) {

@@ -28,7 +28,6 @@ public class Task {
         return completed;
     }
 
-    // ✅ SETTER
     public void setId(String id) {
         this.id = id;
     }

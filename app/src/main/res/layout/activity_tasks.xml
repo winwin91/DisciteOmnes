@@ -8,7 +8,6 @@
     android:background="#FFFFFF"
     tools:context=".TasksActivity">
 
-    <!-- Header -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerBar"
         android:layout_width="0dp"
@@ -36,7 +35,6 @@
             app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Optionaler Platzhalter für Inhalte -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTasks"
         android:layout_width="0dp"
@@ -58,7 +56,6 @@
         android:src="@drawable/ic_add"
         app:tint="@color/white" />
 
-    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/naviBar"
         android:layout_width="0dp"

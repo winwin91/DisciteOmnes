@@ -9,7 +9,6 @@
     android:background="#FFFFFF"
     tools:context=".GroupsActivity">
 
-    <!-- Header -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerBar"
         android:layout_width="0dp"
@@ -37,7 +36,6 @@
             app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- RecyclerView für Gruppenliste -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewGroups"
         android:layout_width="0dp"
@@ -48,11 +46,6 @@
         app:layout_constraintBottom_toTopOf="@id/naviBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!-- Floating Action Button (Menükreis) -->
-
-
-    <!-- Bottom Navigation -->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabMenu"

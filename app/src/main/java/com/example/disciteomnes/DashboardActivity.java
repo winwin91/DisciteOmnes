@@ -84,11 +84,11 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void loadGroupCount() {
-        // ✅ Hole Token aus SharedPreferences
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("TOKEN", "");
 
 
+        // ab hier teils generiert bzw. Hilfestellung geholt
         repository.getGroups(token, new Callback<List<Group>>() {
             @Override
             public void onResponse(Call<List<Group>> call, Response<List<Group>> response) {
@@ -96,7 +96,6 @@ public class DashboardActivity extends AppCompatActivity {
                     List<Group> groups = response.body();
                     int count = (groups != null) ? groups.size() : 0;
 
-                    // ✅ Setze die Zahl in dein TextView (Box 1)
                     TextView groupsCountText = findViewById(R.id.groupsCountText);
                     groupsCountText.setText(String.valueOf(count));
                 } else {

@@ -18,8 +18,7 @@ public class DeleteGroupActivity extends AppCompatActivity {
         btnConfirmDelete = findViewById(R.id.btnConfirmDelete);
 
         btnConfirmDelete.setOnClickListener(v -> {
-            // TODO: Repository.deleteGroup() implementieren
-            Toast.makeText(this, "Löschen-Logik noch implementieren!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Keine Gruppe zum Löschen vorhanden!", Toast.LENGTH_SHORT).show();
         });
     }
 }

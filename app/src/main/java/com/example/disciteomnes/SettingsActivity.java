@@ -9,17 +9,13 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -36,7 +32,6 @@ public class SettingsActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    // .replace(R.id.settings, new SettingsFragment())
                     .commit();
         }
         mAuth = FirebaseAuth.getInstance();
@@ -47,26 +42,24 @@ public class SettingsActivity extends AppCompatActivity {
         logoutButton = findViewById(R.id.logoutButton);
         deleteAccountButton = findViewById(R.id.deleteAccountButton);
 
-        // Beispiel: Switch-Handler
+
         notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             Toast.makeText(this, "Benachrichtigungen " + (isChecked ? "aktiviert" : "deaktiviert"), Toast.LENGTH_SHORT).show();
-            // Hier kannst du es auch in SharedPreferences speichern
         });
 
-        // Spinner: Sprache
+        // languages generiert
         String[] languages = {"Deutsch", "English"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, languages);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         languageSpinner.setAdapter(adapter);
 
-        // Hilfe
+
         helpButton.setOnClickListener(v -> {
             Toast.makeText(this, "Hilfe wird geöffnet...", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(SettingsActivity.this, HelpActivity.class);
             startActivity(intent);
         });
 
-        // Logout
         logoutButton.setOnClickListener(v -> {
             mAuth.signOut();
             Toast.makeText(this, "Erfolgreich ausgeloggt!", Toast.LENGTH_SHORT).show();
@@ -74,7 +67,7 @@ public class SettingsActivity extends AppCompatActivity {
             finish();
         });
 
-        // Konto löschen
+        // generiert
         deleteAccountButton.setOnClickListener(v -> {
             FirebaseUser user = mAuth.getCurrentUser();
             if (user != null) {
@@ -90,7 +83,6 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        // NavigationBar
         BottomNavigationView bottomNav = findViewById(R.id.naviBar);
         bottomNav.setSelectedItemId(R.id.navigation_settings);
 

@@ -5,13 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.disciteomnes.R;
 import com.example.disciteomnes.model.Group;
-
 import java.util.List;
 
 public class GroupsAdapter extends RecyclerView.Adapter<GroupsAdapter.GroupViewHolder> {
@@ -29,12 +26,14 @@ public class GroupsAdapter extends RecyclerView.Adapter<GroupsAdapter.GroupViewH
         this.groupList = groupList;
     }
 
+    // Methode wurde generiert
     @Override
     public GroupViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_group, parent, false);
         return new GroupViewHolder(view);
     }
 
+    // Methode wurde generiert
     @Override
     public void onBindViewHolder(GroupViewHolder holder, int position) {
         Group group = groupList.get(position);

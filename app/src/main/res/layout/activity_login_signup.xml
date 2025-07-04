@@ -8,9 +8,6 @@
     android:background="#5F6FA9"
     tools:context=".LoginSignupActivity">
 
-    <!-- Dein Logo -->
-
-    <!-- Stern oben rechts -->
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="346dp"
@@ -23,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <!-- Stern unten links neben Logo -->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="50dp"
@@ -43,12 +39,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="-40dp"
         android:layout_marginStart="32dp" />
-
-    <!-- Einloggen Button -->
-
-    <!-- Divider Linie -->
-
-    <!-- Registrieren Button -->
 
     <Button
         android:id="@+id/loginbtn"

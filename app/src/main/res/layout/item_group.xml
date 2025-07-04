@@ -16,7 +16,6 @@
         android:gravity="center"
         android:padding="16dp">
 
-        <!-- Gruppenname -->
         <TextView
             android:id="@+id/groupName"
             android:layout_width="wrap_content"
@@ -26,7 +25,6 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF" />
 
-        <!-- Gruppenbeschreibung -->
         <TextView
             android:id="@+id/groupDescription"
             android:layout_width="wrap_content"

@@ -6,14 +6,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.disciteomnes.model.GroupRequest;
 import com.example.disciteomnes.model.Group;
 import com.example.disciteomnes.repository.GroupRepository;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,14 +19,13 @@ public class EditGroupActivity extends AppCompatActivity {
 
     private EditText editGroupName, editGroupDescription;
     private Button btnEditGroup;
-
     private GroupRepository repository;
-    private String groupId; // Zum Bearbeiten
+    private String groupId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_group); // Gleiches Layout!
+        setContentView(R.layout.activity_edit_group);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -38,11 +34,10 @@ public class EditGroupActivity extends AppCompatActivity {
 
         editGroupName = findViewById(R.id.editGroupName);
         editGroupDescription = findViewById(R.id.editGroupDescription);
-        btnEditGroup = findViewById(R.id.btnCreateGroup); // gleiche ID, passt!
+        btnEditGroup = findViewById(R.id.btnCreateGroup);
 
         repository = new GroupRepository(this);
 
-        // Hole Daten aus Intent
         groupId = getIntent().getStringExtra("groupId");
         editGroupName.setText(getIntent().getStringExtra("groupName"));
         editGroupDescription.setText(getIntent().getStringExtra("groupDescription"));
@@ -78,6 +73,7 @@ public class EditGroupActivity extends AppCompatActivity {
         });
     }
 
+    // ab hier generiert!
     private void updateGroup() {
         String name = editGroupName.getText().toString().trim();
         String description = editGroupDescription.getText().toString().trim();
@@ -91,7 +87,6 @@ public class EditGroupActivity extends AppCompatActivity {
         request.name = name;
         request.description = description;
 
-        // ✅ Token aus SharedPreferences laden
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("TOKEN", "");
 

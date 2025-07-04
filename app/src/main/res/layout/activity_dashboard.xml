@@ -9,7 +9,6 @@
     android:background="#5F6FA9"
     tools:context=".DashboardActivity">
 
-    <!-- Begrüßung -->
     <TextView
         android:id="@+id/greeting"
         android:layout_width="wrap_content"
@@ -45,7 +44,6 @@
         android:layout_marginEnd="24dp"
         android:layout_marginTop="40dp"/>
 
-    <!-- Weißer Container -->
     <LinearLayout
         android:id="@+id/white_container"
         android:layout_width="0dp"
@@ -58,7 +56,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp">
 
-        <!-- GridLayout mit 3 Boxen -->
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/boxGrid"
             android:layout_width="match_parent"
@@ -66,7 +63,6 @@
             android:padding="16dp"
             app:columnCount="2">
 
-            <!-- Box 1 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -96,7 +92,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Box 2 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -125,7 +120,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Lange Box -->
             <androidx.cardview.widget.CardView
                 android:layout_width="361dp"
                 android:layout_height="wrap_content"
@@ -155,7 +149,6 @@
             </androidx.cardview.widget.CardView>
         </androidx.gridlayout.widget.GridLayout>
 
-        <!-- Katze Bild -->
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="342dp"
@@ -167,7 +160,6 @@
             android:src="@drawable/pngwing_com__6_" />
     </LinearLayout>
 
-    <!-- BottomNavigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/naviBar"
         android:layout_width="0dp"

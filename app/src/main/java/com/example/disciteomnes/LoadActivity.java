@@ -14,20 +14,18 @@ public class LoadActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_load); // dein Ladebildschirm-Layout
+        setContentView(R.layout.activity_load);
 
         mAuth = FirebaseAuth.getInstance();
 
         new Handler().postDelayed(() -> {
             FirebaseUser currentUser = mAuth.getCurrentUser();
             if (currentUser != null) {
-                // Bereits eingeloggt
                 startActivity(new Intent(LoadActivity.this, DashboardActivity.class));
             } else {
-                // Nicht eingeloggt
                 startActivity(new Intent(LoadActivity.this, LoginSignupActivity.class));
             }
             finish();
-        }, 2000);
+        }, 2000); // Dauer des Ladebildschirms
     }
 }

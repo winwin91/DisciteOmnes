@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -57,13 +55,13 @@ public class SigninActivity extends AppCompatActivity {
                 return;
             }
 
+
+            // ab hier generiert...
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            // Registrierung erfolgreich
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                            // Hole den Benutzernamen aus deinem EditText
                             String username = editTextUsername.getText().toString().trim();
 
                             // Jetzt den DisplayName setzen
@@ -76,7 +74,6 @@ public class SigninActivity extends AppCompatActivity {
                                     if (updateTask.isSuccessful()) {
                                         Toast.makeText(SigninActivity.this, "Registrierung erfolgreich!", Toast.LENGTH_SHORT).show();
 
-                                        // Weiter zur DashboardActivity
                                         Intent intent = new Intent(SigninActivity.this, DashboardActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -88,7 +85,6 @@ public class SigninActivity extends AppCompatActivity {
                                 });
                             }
                         } else {
-                            // Fehler
                             Toast.makeText(SigninActivity.this, "Registrierung fehlgeschlagen: "
                                             + task.getException().getMessage(),
                                     Toast.LENGTH_LONG).show();

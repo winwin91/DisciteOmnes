@@ -6,19 +6,15 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.disciteomnes.api.ApiClient;
 import com.example.disciteomnes.model.GroupRequest;
 import com.example.disciteomnes.model.Group;
 import com.example.disciteomnes.repository.GroupRepository;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import android.util.Log;
 
 public class CreateGroupActivity extends AppCompatActivity {
 
@@ -85,8 +81,11 @@ public class CreateGroupActivity extends AppCompatActivity {
         request.name = name;
         request.description = description;
 
+        // generiert ....
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("TOKEN", "");
+        // ...
+
 
         repository.createGroup(token, request, new Callback<Group>() {
             @Override

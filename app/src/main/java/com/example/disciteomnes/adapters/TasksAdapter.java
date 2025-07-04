@@ -6,21 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView; // WICHTIG!
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.disciteomnes.R;
 import com.example.disciteomnes.model.Task;
-
 import java.util.List;
 
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHolder> {
 
     private List<Task> taskList;
 
-    // 🎨 Farben für die Cards
     private final int[] cardColors = {
             Color.parseColor("#FBC02D"), // Gelb
             Color.parseColor("#E91E63"), // Pink
@@ -37,6 +33,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
         return taskList;
     }
 
+    // Generierter Code bis ....
     @NonNull
     @Override
     public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -55,16 +52,16 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
         holder.assignedTo.setText("Zugewiesen an: " + task.getAssignedTo());
         holder.completed.setChecked(task.isCompleted());
 
-        // 🎨 Card-Farbe dynamisch setzen
+
         int colorIndex = position % cardColors.length;
         holder.taskCard.setCardBackgroundColor(cardColors[colorIndex]);
 
-        // Optional: Checkbox-Listener
+
         holder.completed.setOnCheckedChangeListener((buttonView, isChecked) -> {
             task.setCompleted(isChecked);
-            // TODO: Hier kannst du sofort updateTaskStatus() aufrufen, wenn du magst!
         });
     }
+    // .... hier!
 
     @Override
     public int getItemCount() {
@@ -75,7 +72,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
 
         TextView title, description, dueDate, assignedTo;
         CheckBox completed;
-        CardView taskCard; // ✅ CardView Feld darf nicht fehlen!
+        CardView taskCard;
 
         public TaskViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -84,7 +81,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
             dueDate = itemView.findViewById(R.id.taskDueDate);
             assignedTo = itemView.findViewById(R.id.taskAssignedTo);
             completed = itemView.findViewById(R.id.taskCompleted);
-            taskCard = itemView.findViewById(R.id.taskCard); // Richtig binden!
+            taskCard = itemView.findViewById(R.id.taskCard);
         }
     }
 }

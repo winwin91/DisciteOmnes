@@ -9,7 +9,6 @@
     android:background="#5F6FA9"
     tools:context=".LoginActivity">
 
-  <!-- Oberes Logo -->
   <ImageView
       android:id="@+id/imageView2"
       android:layout_width="346dp"
@@ -21,7 +20,6 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"/>
 
-  <!-- Stern oben rechts -->
   <ImageView
       android:id="@+id/imageView3"
       android:layout_width="50dp"
@@ -32,9 +30,6 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintEnd_toEndOf="parent"/>
 
-  <!-- Stern unten links -->
-
-  <!-- Weißer Bereich mit Schatten -->
   <ImageView
       android:id="@+id/imageView4"
       android:layout_width="50dp"

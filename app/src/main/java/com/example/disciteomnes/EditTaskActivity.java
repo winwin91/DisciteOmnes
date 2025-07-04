@@ -9,16 +9,12 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.disciteomnes.model.TaskRequest;
 import com.example.disciteomnes.model.Task;
 import com.example.disciteomnes.repository.TaskRepository;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.Calendar;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,12 +25,12 @@ public class EditTaskActivity extends AppCompatActivity {
     private Button btnEditTask;
 
     private TaskRepository repository;
-    private String taskId; // Zum Bearbeiten
+    private String taskId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_task); // Du kannst dasselbe Layout wiederverwenden!
+        setContentView(R.layout.activity_edit_task);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,7 +45,7 @@ public class EditTaskActivity extends AppCompatActivity {
 
         repository = new TaskRepository(this);
 
-        // Hole Daten aus Intent
+
         taskId = getIntent().getStringExtra("taskId");
         editTitle.setText(getIntent().getStringExtra("taskTitle"));
         editDescription.setText(getIntent().getStringExtra("taskDescription"));
@@ -88,6 +84,7 @@ public class EditTaskActivity extends AppCompatActivity {
         });
     }
 
+    // Diese Methode vom Internet abgeguckt
     private void showDatePicker() {
         final Calendar calendar = Calendar.getInstance();
         DatePickerDialog datePicker = new DatePickerDialog(this,

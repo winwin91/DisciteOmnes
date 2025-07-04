@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,15 +14,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.disciteomnes.adapters.GroupsAdapter;
 import com.example.disciteomnes.model.Group;
 import com.example.disciteomnes.repository.GroupRepository;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -40,7 +36,6 @@ public class GroupsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(Color.parseColor("#5F6FA9"));
         setContentView(R.layout.activity_groups);
-
 
         recyclerView = findViewById(R.id.recyclerViewGroups);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -77,11 +72,11 @@ public class GroupsActivity extends AppCompatActivity {
     }
 
     private void loadGroups() {
-        // ✅ Token aus Storage holen
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("TOKEN", "");
 
 
+        // Diese Methode generiert
         repository.getGroups(token, new Callback<List<Group>>() {
             @Override
             public void onResponse(Call<List<Group>> call, Response<List<Group>> response) {
@@ -137,7 +132,6 @@ public class GroupsActivity extends AppCompatActivity {
             return;
         }
 
-        // Hole alle Gruppennamen in ein String[]
         List<Group> groups = adapter.getGroupList();
         String[] groupNames = new String[groups.size()];
         for (int i = 0; i < groups.size(); i++) {

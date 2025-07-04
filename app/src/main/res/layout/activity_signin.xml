@@ -8,7 +8,6 @@
     android:background="#5F6FA9"
     tools:context=".SigninActivity">
 
-    <!-- Logo oben -->
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="346dp"
@@ -20,7 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp" />
 
-    <!-- Funkeln oben rechts -->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="50dp"
@@ -31,7 +29,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/pngwing_com__7_" />
 
-    <!-- Funkeln unten links (leicht nach oben verschoben) -->
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="50dp"
@@ -42,7 +39,6 @@
         app:layout_constraintTop_toBottomOf="@id/imageView2"
         app:srcCompat="@drawable/pngwing_com__9_" />
 
-    <!-- Weißer CardView Bereich mit Schatten -->
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"

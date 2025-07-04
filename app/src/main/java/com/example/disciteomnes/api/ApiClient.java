@@ -2,16 +2,14 @@ package com.example.disciteomnes.api;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.Response;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import java.io.IOException;
+
+// Hier ist die ganze Klasse generiert, da ich mit dem Backend leider am Verzweifeln war!
 
 public class ApiClient {
 
@@ -21,7 +19,6 @@ public class ApiClient {
     public static Retrofit getClient(Context context) {
         if (retrofit == null) {
 
-            // 👉 Erstelle den Interceptor
             Interceptor interceptor = chain -> {
                 SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 String token = prefs.getString("TOKEN", "");
